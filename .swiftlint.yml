@@ -1,0 +1,23 @@
+//
+//  .swiftlint.yml
+//  com.kidemma
+//
+//  Created by Alan Delgado on 03/08/25.
+//
+
+disabled_rules:
+  - implicit_return
+  - force_cast
+opt_in_rules:
+  - empty_count
+  - redundant_self
+included:
+  - Source
+excluded:
+  - Pods
+  - GeneratedCode
+custom_rules:
+  no_force_unwrapping:
+    name: "No Force Unwrapping"
+    regex: "!$"
+    severity: error

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		7515A04C2E405EBF00DE4DF2 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7515A0382E405DE700DE4DF2 /* Alamofire.framework */; };
 		7515A04D2E405EBF00DE4DF2 /* Alamofire.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7515A0382E405DE700DE4DF2 /* Alamofire.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		7515A2B32E4060AB00DE4DF2 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 7515A2B22E4060A200DE4DF2 /* .swiftlint.yml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		75159DA72E40480B00DE4DF2 /* com.kidemmaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = com.kidemmaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75159DB12E40480B00DE4DF2 /* com.kidemmaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = com.kidemmaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7515A02A2E405DE700DE4DF2 /* Alamofire.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Alamofire.xcodeproj; path = Alamofire/Alamofire.xcodeproj; sourceTree = "<group>"; };
+		7515A2B22E4060A200DE4DF2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -103,6 +105,7 @@
 		75159D8F2E40480A00DE4DF2 = {
 			isa = PBXGroup;
 			children = (
+				7515A2B22E4060A200DE4DF2 /* .swiftlint.yml */,
 				75159D9A2E40480A00DE4DF2 /* com.kidemma */,
 				75159DAA2E40480B00DE4DF2 /* com.kidemmaTests */,
 				75159DB42E40480B00DE4DF2 /* com.kidemmaUITests */,
@@ -148,6 +151,7 @@
 				75159D952E40480A00DE4DF2 /* Frameworks */,
 				75159D962E40480A00DE4DF2 /* Resources */,
 				7515A04E2E405EBF00DE4DF2 /* Embed Frameworks */,
+				7515A2B42E40611C00DE4DF2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -274,6 +278,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7515A2B32E4060AB00DE4DF2 /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -292,6 +297,26 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7515A2B42E40611C00DE4DF2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [[ \"$(uname -m)\" == \"arm64\" ]]\nthen\n    export PATH=\"/opt/homebrew/bin:$PATH\"\nfi\n\nif command -v swiftlint >/dev/null 2>&1\nthen\n    swiftlint\nelse\n    echo \"warning: 'swiftlint' command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		75159D942E40480A00DE4DF2 /* Sources */ = {
