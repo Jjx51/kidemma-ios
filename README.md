@@ -39,8 +39,9 @@ This combination ensures the project remains clean, modular, and easy to extend.
 
 ## 🚀 How to Clone and Run the Project
 
-_[This section will detail the steps to clone, configure, and run the project on an emulator or physical device.]_
+- **Minimum iOS version**: iOS 15.6
 
+- 
 ## 👥 Credits and Contributors
 
 _[This section will display contributor profile avatars.]_
