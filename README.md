@@ -32,12 +32,16 @@ This combination ensures the project remains clean, modular, and easy to extend.
 
 ## 🧰 Technologies Used
 
-_[This section details the libraries and dependancies the project uses.]_
+- **Alamofire**: For HTTP requests
+  - See more here: https://github.com/Alamofire/Alamofire
+- **XC Test**: For app testing
+  - See more here: https://developer.apple.com/documentation/xctest
 
 ## 🚀 How to Clone and Run the Project
 
-_[This section will detail the steps to clone, configure, and run the project on an emulator or physical device.]_
+- **Minimum iOS version**: iOS 15.6
 
+- 
 ## 👥 Credits and Contributors
 
 _[This section will display contributor profile avatars.]_
