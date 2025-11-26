@@ -25,8 +25,9 @@ struct com_kidemmaApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Kidemma()
         }
+        .environment(Router())
         .modelContainer(sharedModelContainer)
     }
 }
