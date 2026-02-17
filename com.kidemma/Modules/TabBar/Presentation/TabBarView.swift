@@ -95,9 +95,7 @@ struct HomeView: View {
     var body: some View {
         VStack{
             TopBar()
-            Spacer()
-            Text("Página de Inicio")
-            Spacer()
+            AdminHome()
         }
         
     }

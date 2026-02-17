@@ -26,7 +26,6 @@ struct TopBar: View {
             Image("ic_notifications")
         }
         .padding(.horizontal, 20)
-        .padding(.vertical, 4)
         .background(.white)
     }
 }
