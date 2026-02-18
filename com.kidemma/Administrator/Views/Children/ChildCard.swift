@@ -8,35 +8,12 @@
 import SwiftUI
 
 struct ChildCard: View {
-    var child: Child
+    @State var child: Child
     
     var body: some View {
         HStack {
             VStack(alignment: .leading) {
-                HStack(spacing: 16) {
-                    Image(child.gender.rawValue == "female" ? .girl : .boy)
-                        .resizable()
-                        .scaledToFit()
-                        .foregroundStyle(.black)
-                        .padding(4)
-                        .frame(width: 30)
-                        .clipShape(.circle)
-                        .overlay(Circle().stroke(
-                            Color("IconColor"),
-                            lineWidth: 2
-                        ))
-                    VStack(alignment: .leading) {
-                        Text(child.name)
-                            .font(.headline)
-                            .lineLimit(1)
-                        HStack {
-                            Text("Edad:")
-                                .font(.headline)
-                            Text(child.ageAsString)
-                        }
-                    }
-                }
-                .padding(.horizontal, 14)
+                ChildInfo(child: $child)
                 Divider()
                     .foregroundColor(Color("Divisor"))
                 VStack(alignment: .leading) {
