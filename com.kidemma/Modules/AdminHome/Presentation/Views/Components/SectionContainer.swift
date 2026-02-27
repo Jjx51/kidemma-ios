@@ -10,6 +10,8 @@ import SwiftUI
 struct SectionContainer: View {
     let sectionModel : SectionModel
     private let colors: [Color] = [Color("Focus"), Color("IconColor"), Color("StatusWarning")]
+    @AppStorage("app.language") private var languageCode: String = "system"
+    private var appLanguage: AppLanguage { AppLanguage(rawValue: languageCode) ?? .system }
     
     private func colorForIndex(_ index: Int) -> Color {
         colors[index % colors.count]
@@ -19,7 +21,9 @@ struct SectionContainer: View {
         VStack {
             HStack{
                 Image(sectionModel.image)
-                Text(sectionModel.title).font(Font.title3.bold())
+                Text(sectionModel.title)
+                    .font(Font.title3.bold())
+                    .accessibilityLabel(L10n.key("section.title", bundle: appLanguage.bundle, defaultValue: "Section title"))
                 Spacer()
             }
             .padding(.horizontal, 12)
@@ -40,9 +44,11 @@ struct SectionContainer: View {
                             .listRowSeparator(.visible)
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .padding(.vertical, 8)
+                            .accessibilityLabel(L10n.key("section.item.title", bundle: appLanguage.bundle, defaultValue: "Item title"))
                         Spacer()
                         Text("\(item.count)")
                             .font(Font.title3)
+                            .accessibilityLabel(L10n.key("section.item.count", bundle: appLanguage.bundle, defaultValue: "Count"))
                     }.padding(.leading, 24).padding(.trailing, 10)
                     Divider()
                 }
@@ -61,13 +67,14 @@ struct SectionContainer: View {
     SectionContainer(
         sectionModel: SectionModel(
             image: "ic_complaints",
-            title: "Denuncias",
+            title: L10n.string("admin.complaints.title"),
             items: [
                 SectionItem(
-                    title: "Pendinete",
-                    count: 10),
+                    title: L10n.string("admin.complaints.pending"),
+                    count: 10
+                ),
                 SectionItem(
-                    title: "Desactivados",
+                    title: L10n.string("admin.complaints.deactivated"),
                     count: 5
                 )
             ]

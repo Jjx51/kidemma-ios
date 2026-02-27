@@ -8,55 +8,61 @@
 import SwiftUI
 
 struct AdminHome: View {
-    var mockContent: [SectionModel] = [
-        SectionModel(
-            image: "ic_status",
-            title: "Estatus de clases",
-            items: [
-                SectionItem(
-                    icon: "ic_warning",
-                    title: "Posibles cancelaciones",
-                    count: 10
-                ),
-                SectionItem(
-                    icon: "ic_danger",
-                    title: "Cancelaciones definitivas",
-                    count: 5
-                ),
-            ]
-        ),
-        SectionModel(
-            image: "ic_payment_status",
-            title: "Estatus de pagos",
-            items: [
-                SectionItem(
-                    title: "Pagos pendientes",
-                    count: 10
-                ),
-                SectionItem(
-                    title: "Pagos vencidos",
-                    count: 5
-                ),
-                SectionItem(
-                    title: "Pagos por aprobar",
-                    count: 2
-                )
-            ]
-        ),
-        SectionModel(
-            image: "ic_complaints",
-            title: "Denuncias",
-            items: [
-                SectionItem(
-                    title: "Pendinete",
-                    count: 10),
-                SectionItem(
-                    title: "Desactivados",
-                    count: 5
-                )
-            ]
-        ),
-    ]
+    @AppStorage("app.language") private var languageCode: String = "system"
+    private var appLanguage: AppLanguage { AppLanguage(rawValue: languageCode) ?? .system }
+
+    private var mockContent: [SectionModel] {
+        [
+            SectionModel(
+                image: "ic_status",
+                title: L10n.string("admin.status.classes", bundle: appLanguage.bundle),
+                items: [
+                    SectionItem(
+                        icon: "ic_warning",
+                        title: L10n.string("admin.status.classes.possibleCancellations", bundle: appLanguage.bundle),
+                        count: 10
+                    ),
+                    SectionItem(
+                        icon: "ic_danger",
+                        title: L10n.string("admin.status.classes.finalCancellations", bundle: appLanguage.bundle),
+                        count: 5
+                    )
+                ]
+            ),
+            SectionModel(
+                image: "ic_payment_status",
+                title: L10n.string("admin.status.payments", bundle: appLanguage.bundle),
+                items: [
+                    SectionItem(
+                        title: L10n.string("admin.payments.pending", bundle: appLanguage.bundle),
+                        count: 10
+                    ),
+                    SectionItem(
+                        title: L10n.string("admin.payments.overdue", bundle: appLanguage.bundle),
+                        count: 5
+                    ),
+                    SectionItem(
+                        title: L10n.string("admin.payments.toApprove", bundle: appLanguage.bundle),
+                        count: 2
+                    )
+                ]
+            ),
+            SectionModel(
+                image: "ic_complaints",
+                title: L10n.string("admin.complaints.title", bundle: appLanguage.bundle),
+                items: [
+                    SectionItem(
+                        title: L10n.string("admin.complaints.pending", bundle: appLanguage.bundle),
+                        count: 10
+                    ),
+                    SectionItem(
+                        title: L10n.string("admin.complaints.deactivated", bundle: appLanguage.bundle),
+                        count: 5
+                    )
+                ]
+            )
+        ]
+    }
     
     var body: some View {
         VStack {

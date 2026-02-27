@@ -22,6 +22,8 @@ struct TabBarView: View {
     }
     
     @State private var selectedTab: Tab = .home
+    @AppStorage("app.language") private var languageCode: String = "system"
+    private var appLanguage: AppLanguage { AppLanguage(rawValue: languageCode) ?? .system }
     
     var body: some View {
         TabView(selection: $selectedTab) {
@@ -31,7 +33,7 @@ struct TabBarView: View {
                     ? "ic_admin_home_active"
                     : "ic_admin_home"
                 )
-                Text("Inicio")
+                Text(L10n.key("tab.home", bundle: appLanguage.bundle, defaultValue: "Home"))
             }
             .tag(Tab.home)
             .toolbarBackground(.white, for: .tabBar) // Fondo de la pestaña
@@ -43,7 +45,7 @@ struct TabBarView: View {
                     ? "ic_kids_active"
                     : "ic_kids"
                 )
-                Text("Niños")
+                Text(L10n.key("tab.kids", bundle: appLanguage.bundle, defaultValue: "Kids"))
             }
             .tag(Tab.kids)
             .toolbarBackground(.white, for: .tabBar) // 1. Cambia el color
@@ -54,7 +56,7 @@ struct TabBarView: View {
                     ? "ic_schedule_active"
                     : "ic_schedule"
                 )
-                Text("Agenda")
+                Text(L10n.key("tab.schedule", bundle: appLanguage.bundle, defaultValue: "Schedule"))
             }
             .tag(Tab.dateBook)
             .toolbarBackground(.white, for: .tabBar) // 1. Cambia el color
@@ -65,7 +67,7 @@ struct TabBarView: View {
                     ? "ic_families_active"
                     : "ic_families"
                 )
-                Text("Familias")
+                Text(L10n.key("tab.families", bundle: appLanguage.bundle, defaultValue: "Families"))
             }
             .tag(Tab.family)
             .toolbarBackground(.white, for: .tabBar) // 1. Cambia el color
@@ -76,7 +78,7 @@ struct TabBarView: View {
                     ? "ic_admin_others_active"
                     : "ic_admin_others"
                 )
-                Text("Otros")
+                Text(L10n.key("tab.others", bundle: appLanguage.bundle, defaultValue: "Others"))
             }
             .tag(Tab.other)
             .toolbarBackground(.white, for: .tabBar) // 1. Cambia el color
@@ -102,44 +104,56 @@ struct HomeView: View {
 }
 
 struct KidsView: View {
+    @AppStorage("app.language") private var languageCode: String = "system"
+    private var appLanguage: AppLanguage { AppLanguage(rawValue: languageCode) ?? .system }
+
     var body: some View {
         VStack{
             TopBar()
             Spacer()
-            Text("Niños")
+            Text(L10n.key("tab.kids", bundle: appLanguage.bundle, defaultValue: "Kids"))
             Spacer()
         }
     }
 }
 
 struct DateBookView: View {
+    @AppStorage("app.language") private var languageCode: String = "system"
+    private var appLanguage: AppLanguage { AppLanguage(rawValue: languageCode) ?? .system }
+
     var body: some View {
         VStack{
             TopBar()
             Spacer()
-            Text("Agenda")
+            Text(L10n.key("tab.schedule", bundle: appLanguage.bundle, defaultValue: "Schedule"))
             Spacer()
         }
     }
 }
 
 struct FamilyView: View {
+    @AppStorage("app.language") private var languageCode: String = "system"
+    private var appLanguage: AppLanguage { AppLanguage(rawValue: languageCode) ?? .system }
+
     var body: some View {
         VStack{
             TopBar()
             Spacer()
-            Text("Familias")
+            Text(L10n.key("tab.families", bundle: appLanguage.bundle, defaultValue: "Families"))
             Spacer()
         }
     }
 }
 
 struct OtherView: View {
+    @AppStorage("app.language") private var languageCode: String = "system"
+    private var appLanguage: AppLanguage { AppLanguage(rawValue: languageCode) ?? .system }
+
     var body: some View {
         VStack{
             TopBar()
             Spacer()
-            Text("Otros")
+            Text(L10n.key("tab.others", bundle: appLanguage.bundle, defaultValue: "Others"))
             Spacer()
         }
     }
