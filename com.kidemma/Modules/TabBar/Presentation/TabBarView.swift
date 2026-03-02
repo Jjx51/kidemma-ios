@@ -138,9 +138,7 @@ struct OtherView: View {
     var body: some View {
         VStack{
             TopBar()
-            Spacer()
-            Text("Otros")
-            Spacer()
+            OthersScreen()
         }
     }
 }
