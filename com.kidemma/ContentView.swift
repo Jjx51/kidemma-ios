@@ -11,13 +11,17 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [Item]
+    @AppStorage("app.language") private var languageCode: String = "system"
+    private var appLanguage: AppLanguage { AppLanguage(rawValue: languageCode) ?? .system }
 
     var body: some View {
         NavigationSplitView {
             List {
                 ForEach(items) { item in
                     NavigationLink {
-                        Text("Item at \(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))")
+                        Text(L10n.key("content.itemAt", bundle: appLanguage.bundle, defaultValue: "Item at"))
+                        + Text(" ")
+                        + Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
                     } label: {
                         Text(item.timestamp, format: Date.FormatStyle(date: .numeric, time: .standard))
                     }
@@ -30,12 +34,16 @@ struct ContentView: View {
                 }
                 ToolbarItem {
                     Button(action: addItem) {
-                        Label("Add Item", systemImage: "plus")
+                        Label {
+                            Text(L10n.key("content.addItem", bundle: appLanguage.bundle, defaultValue: "Add Item"))
+                        } icon: {
+                            Image(systemName: "plus")
+                        }
                     }
                 }
             }
         } detail: {
-            Text("Select an item")
+            Text(L10n.key("content.selectItem", bundle: appLanguage.bundle, defaultValue: "Select an item"))
         }
     }
 
