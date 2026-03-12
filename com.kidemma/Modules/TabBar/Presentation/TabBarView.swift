@@ -105,9 +105,7 @@ struct KidsView: View {
     var body: some View {
         VStack{
             TopBar()
-            Spacer()
-            Text("Niños")
-            Spacer()
+            ChildrenView()
         }
     }
 }
