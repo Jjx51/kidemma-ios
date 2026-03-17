@@ -8,21 +8,10 @@
 import SwiftUI
 import SwiftData
 struct ContentView: View {
-    @State private var week = Week.containing(Date())
-    
     var body: some View {
-        HStack {
-            WeekPickerField(week: $week)
-            Spacer()
-            PrevNextChevrons(
-                value: $week,
-                chevronsSize: .title,
-                previous: { $0.previous() },
-                next: { $0.next() }
-            )
-        }
-        .padding(.horizontal)
+        TabBarView()
     }
+    
 }
 //struct ContentView: View {
 //    @Environment(\.modelContext) private var modelContext
