@@ -35,22 +35,9 @@
 		7515A2B22E4060A200DE4DF2 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		19FF482B2F5B3301002C7972 /* Exceptions for "com.kidemma" folder in "com.kidemma" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				"com-kidemma-Info.plist",
-			);
-			target = 75159D972E40480A00DE4DF2 /* com.kidemma */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		75159D9A2E40480A00DE4DF2 /* com.kidemma */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				19FF482B2F5B3301002C7972 /* Exceptions for "com.kidemma" folder in "com.kidemma" target */,
-			);
 			path = com.kidemma;
 			sourceTree = "<group>";
 		};

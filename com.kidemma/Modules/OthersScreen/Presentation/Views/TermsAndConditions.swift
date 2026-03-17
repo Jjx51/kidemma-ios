@@ -15,7 +15,7 @@ struct TermsAndConditions: View {
         NavigationStack {
             ScrollView {
                 Text(terms)
-                    .font(.custom("poppins_light", size: 30))
+                    .font(.custom(.light, size: 30))
                     .foregroundColor(Color("TextColor"))
                     .frame(maxWidth: .infinity, alignment: .leading)
             }.padding(.horizontal, 25).padding(.top, 10)

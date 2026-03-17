@@ -4,4 +4,10 @@
    <FileRef
       location = "self:">
    </FileRef>
+   <FileRef
+      location = "group:FontManager.swift">
+   </FileRef>
+   <FileRef
+      location = "group:FONTS_SETUP_GUIDE.md">
+   </FileRef>
 </Workspace>
