@@ -16,7 +16,7 @@ struct IconGridButton: View {
             Button {
                 isListView.toggle()
             } label: {
-                Image(systemName: isListView ? "list.bullet" : "square.grid.2x2")
+                Image(systemName: !isListView ? "list.bullet" : "square.grid.2x2")
                     .foregroundStyle(Color("DisabledButtonText"))
                     .padding(12)
                     .frame(width: 40, height: 40)

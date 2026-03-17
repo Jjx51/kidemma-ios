@@ -7,9 +7,8 @@
 
 import SwiftUI
 
-struct ChildrenToolbar: View {
+struct SearchToolbar: View {
     @Binding var childrenSearch: String
-    @Binding var isListView: Bool
     
     @FocusState var kidSearchTyping
     
@@ -18,6 +17,7 @@ struct ChildrenToolbar: View {
             HStack(spacing: 16) {
                 TextField("Escribe algo", text: $childrenSearch)
                     .font(.custom("Poppins-Regular", size: 16))
+                    .bold()
                     .textFieldStyle(.plain)
                     .frame(height: 50)
                     .padding(.horizontal, 20)
@@ -25,6 +25,14 @@ struct ChildrenToolbar: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
                     .focused($kidSearchTyping)
                     .shadow(radius: 3, x: 0, y: 3)
+                    .overlay(
+                        HStack {
+                            Spacer()
+                            Image(systemName: "magnifyingglass")
+                                .foregroundColor(Color("DisabledButtonText"))
+                                .padding(.trailing, 12)
+                        }
+                    )
                 Button {
                     
                 } label: {
@@ -32,15 +40,15 @@ struct ChildrenToolbar: View {
                         .foregroundStyle(Color("DisabledButtonText"))
                         .padding(12)
                 }
+                .frame(minHeight: 50)
                 .background(Color("SecondaryButtonBackground"))
                 .clipShape(.rect(cornerRadius: 8))
                 .shadow(radius: 3, x: 0, y: 3)
             }
-            .padding(.top, 14)
         }
     }
 }
 
 #Preview {
-    ChildrenToolbar(childrenSearch: .constant(""), isListView: .constant(false))
+    SearchToolbar(childrenSearch: .constant(""))
 }
