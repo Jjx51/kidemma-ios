@@ -14,17 +14,7 @@ struct ChildAvatar: View {
     var body: some View {
             VStack {
                 Image(gender == "female" ? .girl : .boy)
-                    .resizable()
-                    .scaledToFit()
-                    .foregroundStyle(.black)
-                    .background(.white)
-                    .padding(12)
-                    .clipShape(.circle)
-                    .overlay(Circle().stroke(
-                        Color("IconColor"),
-                        lineWidth: 2
-                    ))
-                    .frame(width: 60, height: 60)
+                    .avatarStyle(size: 60)
                 Text(displayName)
                     .font(.caption)
                     .lineLimit(2)

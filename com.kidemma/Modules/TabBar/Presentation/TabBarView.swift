@@ -25,7 +25,7 @@ struct TabBarView: View {
     
     var body: some View {
         TabView(selection: $selectedTab) {
-            HomeView().tabItem {
+            AdminHome().tabItem {
                 Image(
                     selectedTab == .home
                     ? "ic_admin_home_active"
@@ -37,7 +37,7 @@ struct TabBarView: View {
             .toolbarBackground(.white, for: .tabBar) // Fondo de la pestaña
             .toolbarBackground(.visible, for: .tabBar) // Hacer visible en iOS 16+
             
-            KidsView().tabItem {
+            ChildrenView().tabItem {
                 Image(
                     selectedTab == .kids
                     ? "ic_kids_active"
@@ -59,7 +59,7 @@ struct TabBarView: View {
             .tag(Tab.dateBook)
             .toolbarBackground(.white, for: .tabBar) // 1. Cambia el color
             .toolbarBackground(.visible, for: .tabBar)
-            FamilyView().tabItem {
+            FamiliesView().tabItem {
                 Image(
                     selectedTab == .family
                     ? "ic_families_active"
@@ -70,7 +70,7 @@ struct TabBarView: View {
             .tag(Tab.family)
             .toolbarBackground(.white, for: .tabBar) // 1. Cambia el color
             .toolbarBackground(.visible, for: .tabBar)
-            OtherView().tabItem {
+            OthersScreen().tabItem {
                 Image(
                     selectedTab == .other
                     ? "ic_admin_others_active"
@@ -91,24 +91,6 @@ enum Tab : Hashable { case home
     case family
     case other
 }
-struct HomeView: View {
-    var body: some View {
-        VStack{
-            TopBar()
-            AdminHome()
-        }
-        
-    }
-}
-
-struct KidsView: View {
-    var body: some View {
-        VStack{
-            TopBar()
-            ChildrenView()
-        }
-    }
-}
 
 struct DateBookView: View {
     var body: some View {
@@ -117,26 +99,6 @@ struct DateBookView: View {
             Spacer()
             Text("Agenda")
             Spacer()
-        }
-    }
-}
-
-struct FamilyView: View {
-    var body: some View {
-        VStack{
-            TopBar()
-            Spacer()
-            Text("Familias")
-            Spacer()
-        }
-    }
-}
-
-struct OtherView: View {
-    var body: some View {
-        VStack{
-            TopBar()
-            OthersScreen()
         }
     }
 }

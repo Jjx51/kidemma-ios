@@ -18,23 +18,26 @@ struct OthersScreen: View {
     ]
     
     var body: some View {
-        VStack(alignment: .leading) {
-            if(roll == "Admin"){
-                OptionItem(title: "Panel administrativo", image: "ic_admin_dashboard")
+        VStack{
+            TopBar()
+            VStack(alignment: .leading) {
+                if(roll == "Admin"){
+                    OptionItem(title: "Panel administrativo", image: "ic_admin_dashboard")
+                }
+                Text("Enlaces públicos").font(Font.title2.bold())
+                    
+                List(mockContent, id: \.title) { section in
+                    OptionItem(title: section.title, image: section.image)
+                    .listRowSeparator(.hidden)
+                    .listRowInsets(EdgeInsets())
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .listStyle(.plain)
+                Spacer()
             }
-            Text("Enlaces públicos").font(Font.title2.bold())
-                
-            List(mockContent, id: \.title) { section in
-                OptionItem(title: section.title, image: section.image)
-                .listRowSeparator(.hidden)
-                .listRowInsets(EdgeInsets())
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            .listStyle(.plain)
-            Spacer()
+            .padding(.horizontal, 16)
+            .padding(.top, 12)
         }
-        .padding(.horizontal, 16)
-        .padding(.top, 12)
         .background(Color("BackgroundColor"))
     }
 }
