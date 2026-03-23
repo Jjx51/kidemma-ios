@@ -8,14 +8,14 @@
 import SwiftUI
 
 struct SearchToolbar: View {
-    @Binding var childrenSearch: String
+    @Binding var termSearch: String
     
     @FocusState var kidSearchTyping
     
     var body: some View {
         VStack {
             HStack(spacing: 16) {
-                TextField("Escribe algo", text: $childrenSearch)
+                TextField("Escribe algo", text: $termSearch)
                     .font(.custom("Poppins-Regular", size: 16))
                     .bold()
                     .textFieldStyle(.plain)
@@ -50,5 +50,5 @@ struct SearchToolbar: View {
 }
 
 #Preview {
-    SearchToolbar(childrenSearch: .constant(""))
+    SearchToolbar(termSearch: .constant(""))
 }

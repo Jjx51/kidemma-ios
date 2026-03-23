@@ -60,6 +60,7 @@ struct AdminHome: View {
     
     var body: some View {
         VStack {
+            TopBar()
             List(mockContent) { section in
                 SectionContainer(
                     sectionModel: section
@@ -69,10 +70,10 @@ struct AdminHome: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .listStyle(.plain)
+            .padding(.horizontal, 16)
+            .padding(.top, 12)
             Spacer()
         }
-        .padding(.horizontal, 16)
-        .padding(.top, 12)
         .background(Color("BackgroundColor"))
         
     }

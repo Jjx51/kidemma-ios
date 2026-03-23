@@ -16,12 +16,14 @@ struct ChildrenView: View {
     var body: some View {
         
         VStack {
+            TopBar()
             HStack{
                 VStack {
-                    SearchToolbar(childrenSearch: $childrenSearch)
+                    SearchToolbar(termSearch: $childrenSearch)
                     IconGridButton(isListView: $isListView)
                 }
             }
+            .padding(.top, 12)
             .padding(.horizontal, 25)
             
             ScrollView {
@@ -47,7 +49,7 @@ struct ChildrenView: View {
                 }
             }
         }
-        .padding(.top, 12)
+        
         .background(Color("BackgroundColor"))
         
     }
